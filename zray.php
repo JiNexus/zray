@@ -8,9 +8,10 @@ use mako\application\Application;
 
 $zrayExtension = new ZRayExtension('Mako');
 
-$zrayExtension->setMetadata(array(
-    'logo' => __DIR__ . DIRECTORY_SEPARATOR . 'logo.png',
-));
+$zrayExtension->setMetadata(
+[
+	'logo' => __DIR__ . DIRECTORY_SEPARATOR . 'logo.png',
+]);
 
 //--------------------------------------------------------------------------
 // Enable extension after Application::run has been executed
