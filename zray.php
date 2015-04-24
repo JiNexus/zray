@@ -29,10 +29,10 @@ $zrayExtension->traceFunction('mako\http\Response::send', function(){}, function
 // Add session panel
 //--------------------------------------------------------------------------
 
-$zrayExtension->traceFunction('mako\session\Session::__destruct', function($context, &$storage)
+$zrayExtension->traceFunction('mako\session\Session::start', function(){}, function($context, &$storage) use ($zrayExtension)
 {
-	if(Application::instance()->getContainer()->has('session'))
+	$zrayExtension->traceFunction('mako\session\Session::__destruct', function($context, &$storage)
 	{
 		$storage['session'] = [Application::instance()->getContainer()->get('session')->getData()];
-	}
-}, function(){});
+	}, function(){});
+});
